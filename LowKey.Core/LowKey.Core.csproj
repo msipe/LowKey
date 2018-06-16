@@ -52,10 +52,10 @@
     <Compile Include="Source\Api\IRequestHandler.cs" />
     <Compile Include="Source\Api\RequestHandler.cs" />
     <Compile Include="Source\IRequest.cs" />
-    <Compile Include="Source\Management\Artist.cs" />
+    <Compile Include="Source\Management\Mappings\Artist.cs" />
+    <Compile Include="Source\Management\Mappings\SimilarArtists.cs" />
     <Compile Include="Source\Management\Mappings\SimilarArtistsWrapper.cs" />
     <Compile Include="Source\Management\Runner.cs" />
-    <Compile Include="Source\Management\SimilarArtists.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
