@@ -10,7 +10,7 @@ namespace LowKey {
       Run();
     }
 
-    static async void Run() {
+    static void Run() {
       var httpClient = new HttpClientAdapter();
       var handler = new RequestHandler(httpClient);
       var runner = new Runner(handler);
