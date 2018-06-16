@@ -45,12 +45,16 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Api\GetArtistInfoRequestTest.cs" />
+    <Compile Include="Source\Api\GetSimilarArtistsRequestTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LowKey.Core\LowKey.Core.csproj">
       <Project>{18b26392-d3c3-4c97-95c6-f01bb8c6af6a}</Project>
       <Name>LowKey.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Source\DataHandling\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
