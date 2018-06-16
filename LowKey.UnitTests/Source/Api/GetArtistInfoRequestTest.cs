@@ -7,6 +7,8 @@ namespace LowKey.UnitTests.Source.Api {
     [Test]
     public void TestGetArtistInfoRequestPutsCorrectStringTogether() {
       var request = new GetArtistInfoRequest("test artist");
+      Assert.That(request.GetString(), Is.EqualTo("test artist"));
+      
     }
   }
 }
