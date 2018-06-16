@@ -7,7 +7,7 @@ using System.Net.Http;
 
 namespace LowKey.UnitTests.Source.Management {
   [TestFixture]
-  public class RunnerTest {
+  public class SimilarArtistHandlerTest {
     [Test]
     public void TestRunnerInitsSimilarArtistRequestAndReturnsSimilarArtistsArrayWithNoItems() {
       var request = new GetSimilarArtistsRequest("artist", "key3");
