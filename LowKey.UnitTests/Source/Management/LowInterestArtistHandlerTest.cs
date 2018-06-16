@@ -9,6 +9,6 @@ namespace LowKey.UnitTests.Source.Management {
       var handler = new LowInterestArtistHandler();
       var results = handler.LookForCandidateArtists();
       Assert.That(results.Artists.Length, Is.EqualTo(1));
-    }  
+    }
   }
 }
