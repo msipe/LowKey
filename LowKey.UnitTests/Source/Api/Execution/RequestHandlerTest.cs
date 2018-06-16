@@ -9,17 +9,22 @@ namespace LowKey.UnitTests.Source.Api.Execution {
     [Test]
     public void TestSendRequestUsesTheCorrectString() {
       var request = new GetSimilarArtistsRequest("test", "key");
-      var handler = new RequestHandler(mHttpClient.Object);
-      mHttpClient.Setup(s => s.GetAsync(request.GetString())).Returns(new HttpResponseMessage()).Verifiable();
-      handler.SendRequest(request);
+      mHttpClient
+        .Setup(s => s.GetAsync(request.GetString()))
+        .Returns(new HttpResponseMessage())
+        .Verifiable();
+
+      mHandler.SendRequest(request);
       mHttpClient.Verify();
     }
 
     [SetUp]
     public void DoSetup() {
       mHttpClient = new Mock<IHttpClient>(MockBehavior.Strict);
+      mHandler = new RequestHandler(mHttpClient.Object);
     }
 
     private Mock<IHttpClient> mHttpClient;
+    private RequestHandler mHandler;
   }
 }
