@@ -58,6 +58,7 @@
     <Compile Include="Source\Management\Mappings\SimilarArtists.cs" />
     <Compile Include="Source\Management\Mappings\SimilarArtistsWrapper.cs" />
     <Compile Include="Source\Management\SimilarArtistHandler.cs" />
+    <Compile Include="Source\Utility\Logger.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

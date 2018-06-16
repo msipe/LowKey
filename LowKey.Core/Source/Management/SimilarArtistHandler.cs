@@ -2,6 +2,9 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using LowKey.Core.Source.Management.Mappings;
+using System.IO;
+using System;
+using LowKey.Core.Source.Utility;
 
 namespace LowKey.Core.Source.Management {
   public class SimilarArtistHandler {
@@ -11,6 +14,7 @@ namespace LowKey.Core.Source.Management {
 
     public SimilarArtistWrapper InitSimilarArtistsRequest(IRequest request) {
       var requestContent = mRequestHandler.ReadRequest(mRequestHandler.SendRequest(request));
+      Logger.Log(requestContent);
       return Deserialize<SimilarArtistWrapper>(requestContent);
     }
 
