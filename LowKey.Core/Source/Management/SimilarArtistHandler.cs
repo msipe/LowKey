@@ -22,6 +22,5 @@ namespace LowKey.Core.Source.Management {
     }
 
     private IRequestHandler mRequestHandler;
-    private MemoryTraceWriter tw;
   }
 }

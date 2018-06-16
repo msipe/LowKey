@@ -14,7 +14,7 @@ namespace LowKey {
       var httpClient = new HttpClientAdapter();
       var handler = new RequestHandler(httpClient);
       var runner = new SimilarArtistHandler(handler);
-      var request = new GetSimilarArtistsRequest("metallica", "key");
+      var request = new GetSimilarArtistsRequest("metallica", "d603efbd297006bc2578f39e32f507dd");
       var results = runner.InitSimilarArtistsRequest(request);
       Console.WriteLine(results.SimilarArtists.Artist[0].Name);
       Console.WriteLine(results.SimilarArtists.Artist[1].Name);
