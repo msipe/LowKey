@@ -1,5 +1,6 @@
 ﻿using LowKey.Core.Source.Api;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace LowKey.Core.Source.Management {
   public class Runner {
@@ -7,9 +8,9 @@ namespace LowKey.Core.Source.Management {
       mRequestHandler = requestHandler;
     }
 
-    public SimilarArtists InitSimilarArtistsRequest(IRequest request) {
+    public SimilarArtistWrapper InitSimilarArtistsRequest(IRequest request) {
       var requestContent = mRequestHandler.ReadRequest(mRequestHandler.SendRequest(request));
-      return Deserialize<SimilarArtists>(requestContent);
+      return Deserialize<SimilarArtistWrapper>(requestContent);
     }
 
     private T Deserialize<T>(string json) {
@@ -17,6 +18,10 @@ namespace LowKey.Core.Source.Management {
     }
 
     private IRequestHandler mRequestHandler;
-    
+    private MemoryTraceWriter tw;
+  }
+
+  public class SimilarArtistWrapper {
+    public SimilarArtists SimilarArtists { get; set; }
   }
 }

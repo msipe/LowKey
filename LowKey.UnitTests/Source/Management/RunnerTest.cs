@@ -24,7 +24,7 @@ namespace LowKey.UnitTests.Source.Management {
       
       var result = mRunner.InitSimilarArtistsRequest(request);
 
-      Assert.IsNull(result.Artists);
+      Assert.IsNull(result.SimilarArtists);
       
       mRequestHandler.Verify();
     }
@@ -40,13 +40,13 @@ namespace LowKey.UnitTests.Source.Management {
 
       mRequestHandler
         .Setup(r => r.ReadRequest(message))
-        .Returns("{'Artists':[{'Name':'wow'}]}")
+        .Returns("{'similarartists':{'artist': [{'Name':'wow'}]}}")
         .Verifiable();
 
       var result = mRunner.InitSimilarArtistsRequest(request);
 
-      Assert.That(result.Artists.Length, Is.EqualTo(1));
-      Assert.That(result.Artists[0].Name, Is.EqualTo("wow"));
+      Assert.That(result.SimilarArtists.Artist.Length, Is.EqualTo(1));
+      Assert.That(result.SimilarArtists.Artist[0].Name, Is.EqualTo("wow"));
 
       mRequestHandler.Verify();
     }
@@ -62,15 +62,15 @@ namespace LowKey.UnitTests.Source.Management {
 
       mRequestHandler
         .Setup(r => r.ReadRequest(message))
-        .Returns("{'Artists':[{'Name':'123'},{'Name':'wow'},{'Name':'rtf'}]}")
+        .Returns("{'similarartists':{'artist': [{'Name':'123'},{'Name':'wow'},{'Name':'rtf'}]}}")
         .Verifiable();
 
       var result = mRunner.InitSimilarArtistsRequest(request);
 
-      Assert.That(result.Artists.Length, Is.EqualTo(3));
-      Assert.That(result.Artists[0].Name, Is.EqualTo("123"));
-      Assert.That(result.Artists[1].Name, Is.EqualTo("wow"));
-      Assert.That(result.Artists[2].Name, Is.EqualTo("rtf"));
+      Assert.That(result.SimilarArtists.Artist.Length, Is.EqualTo(3));
+      Assert.That(result.SimilarArtists.Artist[0].Name, Is.EqualTo("123"));
+      Assert.That(result.SimilarArtists.Artist[1].Name, Is.EqualTo("wow"));
+      Assert.That(result.SimilarArtists.Artist[2].Name, Is.EqualTo("rtf"));
 
       mRequestHandler.Verify();
     }
