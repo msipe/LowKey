@@ -51,6 +51,30 @@ namespace LowKey.UnitTests.Source.Management {
       mRequestHandler.Verify();
     }
 
+    [Test]
+    public void TestRunnerInitsSimilarArtistRequestAndReturnsSimilarArtistsArrayWithMultipleItems() {
+      var request = new GetSimilarArtistsRequest("artist", "key3");
+      var message = new HttpResponseMessage();
+      mRequestHandler
+        .Setup(s => s.SendRequest(request))
+        .Returns(message)
+        .Verifiable();
+
+      mRequestHandler
+        .Setup(r => r.ReadRequest(message))
+        .Returns("{'Artists':[{'Name':'123'},{'Name':'wow'},{'Name':'rtf'}]}")
+        .Verifiable();
+
+      var result = mRunner.InitSimilarArtistsRequest(request);
+
+      Assert.That(result.Artists.Length, Is.EqualTo(3));
+      Assert.That(result.Artists[0].Name, Is.EqualTo("123"));
+      Assert.That(result.Artists[1].Name, Is.EqualTo("wow"));
+      Assert.That(result.Artists[2].Name, Is.EqualTo("rtf"));
+
+      mRequestHandler.Verify();
+    }
+
     [SetUp]
     public void DoSetup() {
       mRequestHandler = new Mock<IRequestHandler>(MockBehavior.Strict);
