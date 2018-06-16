@@ -14,7 +14,6 @@ namespace LowKey.Core.Source.Management {
 
     public SimilarArtistWrapper InitSimilarArtistsRequest(IRequest request) {
       var requestContent = mRequestHandler.ReadRequest(mRequestHandler.SendRequest(request));
-      Logger.Log(requestContent);
       return Deserialize<SimilarArtistWrapper>(requestContent);
     }
 
