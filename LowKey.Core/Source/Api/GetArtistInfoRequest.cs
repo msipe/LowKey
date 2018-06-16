@@ -1,4 +1,6 @@
-﻿namespace LowKey.Core.Source.Api {
+﻿using LowKey.Core.Source.Api.Constants;
+
+namespace LowKey.Core.Source.Api {
   public class GetArtistInfoRequest {
     public GetArtistInfoRequest(string artistName, string key) {
       mArtistName = artistName;
@@ -6,7 +8,7 @@
     }
 
     public string GetString() {
-      return string.Format("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist={0}&api_key={1}&format=json", mArtistName, mKey);
+      return string.Format("{0}?method=artist.getinfo&artist={1}&api_key={2}&format=json", ApiConstants.LastFmBaseUrl, mArtistName, mKey);
     }
 
     private string mArtistName;
