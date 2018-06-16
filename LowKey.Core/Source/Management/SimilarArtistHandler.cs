@@ -4,8 +4,8 @@ using Newtonsoft.Json.Serialization;
 using LowKey.Core.Source.Management.Mappings;
 
 namespace LowKey.Core.Source.Management {
-  public class Runner {
-    public Runner(IRequestHandler requestHandler) {
+  public class SimilarArtistHandler {
+    public SimilarArtistHandler(IRequestHandler requestHandler) {
       mRequestHandler = requestHandler;
     }
 

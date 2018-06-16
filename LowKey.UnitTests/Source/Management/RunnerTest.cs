@@ -78,10 +78,10 @@ namespace LowKey.UnitTests.Source.Management {
     [SetUp]
     public void DoSetup() {
       mRequestHandler = new Mock<IRequestHandler>(MockBehavior.Strict);
-      mRunner = new Runner(mRequestHandler.Object);
+      mRunner = new SimilarArtistHandler(mRequestHandler.Object);
     }
 
     public Mock<IRequestHandler> mRequestHandler;
-    public Runner mRunner;
+    public SimilarArtistHandler mRunner;
   }
 }
