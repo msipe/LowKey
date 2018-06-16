@@ -2,10 +2,10 @@
 
 namespace LowKey.Core.Source.Management {
   public class Runner {
-    public Runner(IHttpClient httpClient) {
-      mRequestHandler = new RequestHandler(httpClient);
+    public Runner(IRequestHandler requestHandler) {
+      mRequestHandler = requestHandler;
     }
 
-    private RequestHandler mRequestHandler;
+    private IRequestHandler mRequestHandler;
   }
 }
