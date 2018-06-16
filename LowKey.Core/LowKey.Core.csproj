@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\thirdparty\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,7 +52,9 @@
     <Compile Include="Source\Api\IRequestHandler.cs" />
     <Compile Include="Source\Api\RequestHandler.cs" />
     <Compile Include="Source\IRequest.cs" />
+    <Compile Include="Source\Management\Artist.cs" />
     <Compile Include="Source\Management\Runner.cs" />
+    <Compile Include="Source\Management\SimilarArtists.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
