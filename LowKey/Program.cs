@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace LowKey {
   class Program {
     static void Main(string[] args) {
+      Console.WriteLine("hello there");
     }
   }
 }

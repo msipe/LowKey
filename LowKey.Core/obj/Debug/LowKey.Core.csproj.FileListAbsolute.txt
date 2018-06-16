@@ -1,4 +1,0 @@
-C:\wut\csharpScribbles\LowKey\LowKey.Core\bin\Debug\LowKey.Core.dll
-C:\wut\csharpScribbles\LowKey\LowKey.Core\bin\Debug\LowKey.Core.pdb
-C:\wut\csharpScribbles\LowKey\LowKey.Core\obj\Debug\LowKey.Core.dll
-C:\wut\csharpScribbles\LowKey\LowKey.Core\obj\Debug\LowKey.Core.pdb
