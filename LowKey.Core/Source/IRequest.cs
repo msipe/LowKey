@@ -6,5 +6,6 @@ using System.Threading.Tasks;
 
 namespace LowKey.Core.Source {
   public interface IRequest {
+    string GetString();
   }
 }

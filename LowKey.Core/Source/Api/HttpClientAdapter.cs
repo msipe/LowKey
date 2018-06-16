@@ -11,8 +11,8 @@ namespace LowKey.Core.Source.Api {
       mHttpClient = new HttpClient();
     }
 
-    public Task<System.Net.Http.HttpResponseMessage> GetAsync(string requestUri) {
-      return mHttpClient.GetAsync(requestUri);
+    public HttpResponseMessage GetAsync(string requestUri) {
+      return mHttpClient.GetAsync(requestUri).Result;
     }
 
     private HttpClient mHttpClient;

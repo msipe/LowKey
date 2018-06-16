@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net.Http;
 
 namespace LowKey.Core.Source.Api {
   public interface IHttpClient {
-    Task<System.Net.Http.HttpResponseMessage> GetAsync(string requestUri);
+    HttpResponseMessage GetAsync(string requestUri);
   }
 }

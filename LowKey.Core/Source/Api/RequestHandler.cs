@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace LowKey.Core.Source.Api {
   public class RequestHandler {
-    public void SendRequest(IRequest request) {
-
+    public RequestHandler(IHttpClient httpClient) {
+      mHttpClient = httpClient;
     }
+    public void SendRequest(IRequest request) {
+      mHttpClient.GetAsync(request.GetString());
+    }
+
+    private IHttpClient mHttpClient;
   }
 }
