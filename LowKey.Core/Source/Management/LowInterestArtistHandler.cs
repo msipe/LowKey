@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LowKey.Core.Source.Management.Mappings;
 
 namespace LowKey.Core.Source.Management {
-  class LowInterestArtistHandler {
+  public class LowInterestArtistHandler {
+    public CandidateArtists LookForCandidateArtists() {
+      return new CandidateArtists { Artists = new[] { new Artist() } };
+    }
   }
 }

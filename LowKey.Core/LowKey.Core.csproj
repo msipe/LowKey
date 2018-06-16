@@ -54,6 +54,7 @@
     <Compile Include="Source\IRequest.cs" />
     <Compile Include="Source\Management\LowInterestArtistHandler.cs" />
     <Compile Include="Source\Management\Mappings\Artist.cs" />
+    <Compile Include="Source\Management\Mappings\CandidateArtists.cs" />
     <Compile Include="Source\Management\Mappings\SimilarArtists.cs" />
     <Compile Include="Source\Management\Mappings\SimilarArtistsWrapper.cs" />
     <Compile Include="Source\Management\SimilarArtistHandler.cs" />

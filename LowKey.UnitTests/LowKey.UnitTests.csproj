@@ -60,6 +60,7 @@
     <Compile Include="Source\Api\Execution\RequestHandlerTest.cs" />
     <Compile Include="Source\Api\GetArtistInfoRequestTest.cs" />
     <Compile Include="Source\Api\GetSimilarArtistsRequestTest.cs" />
+    <Compile Include="Source\Management\LowInterestArtistHandlerTest.cs" />
     <Compile Include="Source\Management\SimilarArtistHandlerTest.cs" />
   </ItemGroup>
   <ItemGroup>
