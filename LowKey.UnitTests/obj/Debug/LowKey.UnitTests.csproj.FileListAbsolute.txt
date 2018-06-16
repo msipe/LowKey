@@ -1,0 +1,5 @@
+C:\wut\csharpScribbles\LowKey\LowKey.UnitTests\bin\Debug\LowKey.UnitTests.dll
+C:\wut\csharpScribbles\LowKey\LowKey.UnitTests\bin\Debug\LowKey.UnitTests.pdb
+C:\wut\csharpScribbles\LowKey\LowKey.UnitTests\obj\Debug\LowKey.UnitTests.csprojResolveAssemblyReference.cache
+C:\wut\csharpScribbles\LowKey\LowKey.UnitTests\obj\Debug\LowKey.UnitTests.dll
+C:\wut\csharpScribbles\LowKey\LowKey.UnitTests\obj\Debug\LowKey.UnitTests.pdb

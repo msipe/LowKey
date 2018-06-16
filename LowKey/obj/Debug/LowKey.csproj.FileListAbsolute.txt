@@ -1,0 +1,6 @@
+C:\wut\csharpScribbles\LowKey\LowKey\bin\Debug\LowKey.exe.config
+C:\wut\csharpScribbles\LowKey\LowKey\bin\Debug\LowKey.exe
+C:\wut\csharpScribbles\LowKey\LowKey\bin\Debug\LowKey.pdb
+C:\wut\csharpScribbles\LowKey\LowKey\obj\Debug\LowKey.csprojResolveAssemblyReference.cache
+C:\wut\csharpScribbles\LowKey\LowKey\obj\Debug\LowKey.exe
+C:\wut\csharpScribbles\LowKey\LowKey\obj\Debug\LowKey.pdb
