@@ -44,6 +44,8 @@
     <Compile Include="Source\Api\Constants\ApiConstants.cs" />
     <Compile Include="Source\Api\GetSimilarArtistInfoRequest.cs" />
     <Compile Include="Source\Api\GetArtistInfoRequest.cs" />
+    <Compile Include="Source\Api\HttpClientAdapter.cs" />
+    <Compile Include="Source\Api\IHttpClient.cs" />
     <Compile Include="Source\Api\RequestHandler.cs" />
     <Compile Include="Source\IRequest.cs" />
   </ItemGroup>
