@@ -14,6 +14,9 @@ namespace LowKey.Core.Source.Api {
       return mHttpClient.GetAsync(request.GetString());
     }
 
+    public string ReadRequest(HttpResponseMessage message) {
+      return mHttpClient.ReadAsync(message);
+    }
     private IHttpClient mHttpClient;
   }
 }

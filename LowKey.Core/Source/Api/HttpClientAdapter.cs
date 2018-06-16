@@ -15,6 +15,10 @@ namespace LowKey.Core.Source.Api {
       return mHttpClient.GetAsync(requestUri).Result;
     }
 
+    public string ReadAsync(HttpResponseMessage message) {
+      return message.Content.ReadAsStringAsync().Result;
+    }
+
     private HttpClient mHttpClient;
   }
 }

@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Moq;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace LowKey.UnitTests.Source.Api.Execution {
   [TestFixture]
@@ -15,6 +16,18 @@ namespace LowKey.UnitTests.Source.Api.Execution {
         .Verifiable();
 
       mHandler.SendRequest(request);
+      mHttpClient.Verify();
+    }
+
+    [Test]
+    public void TestReadRequestReturnsCorrectValues() {
+      var message = new HttpResponseMessage();
+      mHttpClient
+        .Setup(s => s.ReadAsync(message))
+        .Returns("babble")
+        .Verifiable();
+
+      Assert.That(mHandler.ReadRequest(message), Is.EqualTo("babble"));
       mHttpClient.Verify();
     }
 

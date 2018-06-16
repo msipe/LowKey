@@ -8,7 +8,12 @@ namespace LowKey.Core.Source.Management {
     }
 
     public SimilarArtists InitSimilarArtistsRequest(IRequest request) {
-      return JsonConvert.DeserializeObject<SimilarArtists>(mRequestHandler.SendRequest(request).ToString());
+      var requestContent = mRequestHandler.ReadRequest(mRequestHandler.SendRequest(request));
+      return Deserialize<SimilarArtists>(requestContent);
+    }
+
+    private T Deserialize<T>(string json) {
+      return JsonConvert.DeserializeObject<T>(json);
     }
 
     private IRequestHandler mRequestHandler;
