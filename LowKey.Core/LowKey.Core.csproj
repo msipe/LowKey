@@ -44,6 +44,8 @@
     <Compile Include="Source\Api\Constants\ApiConstants.cs" />
     <Compile Include="Source\Api\GetSimilarArtistInfoRequest.cs" />
     <Compile Include="Source\Api\GetArtistInfoRequest.cs" />
+    <Compile Include="Source\Api\RequestHandler.cs" />
+    <Compile Include="Source\IRequest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

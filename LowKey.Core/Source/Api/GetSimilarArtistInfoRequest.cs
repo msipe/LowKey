@@ -1,7 +1,7 @@
 ﻿using LowKey.Core.Source.Api.Constants;
 
 namespace LowKey.Core.Source.Api {
-  public class GetSimilarArtistsRequest {
+  public class GetSimilarArtistsRequest:IRequest {
     public GetSimilarArtistsRequest(string artistName, string key) {
       mArtistName = artistName;
       mKey = key;
