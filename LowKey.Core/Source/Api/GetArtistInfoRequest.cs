@@ -8,7 +8,11 @@ namespace LowKey.Core.Source.Api {
     }
 
     public string GetString() {
-      return string.Format("{0}?method=artist.getinfo&artist={1}&api_key={2}&format=json", ApiConstants.LastFmBaseUrl, mArtistName, mKey);
+      return string.Format("{0}?method=artist.getinfo&artist={1}&api_key={2}&format=json", ApiConstants.LastFmBaseUrl, ParseArtistName(mArtistName), mKey);
+    }
+
+    private string ParseArtistName(string incomingName) {
+      return incomingName.Replace(' ', '+');
     }
 
     private string mArtistName;

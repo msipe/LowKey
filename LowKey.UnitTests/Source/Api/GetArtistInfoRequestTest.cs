@@ -9,5 +9,11 @@ namespace LowKey.UnitTests.Source.Api {
       var request = new GetArtistInfoRequest("testArtist", "key2");
       Assert.That(request.GetString(), Is.EqualTo("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=testArtist&api_key=key2&format=json"));
     }
+
+    [Test]
+    public void TestGetArtistInfoRequestHandlesSpaces() {
+      var request = new GetArtistInfoRequest("test Artist", "key2");
+      Assert.That(request.GetString(), Is.EqualTo("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=test+Artist&api_key=key2&format=json"));
+    }
   }
 }
