@@ -1,11 +1,12 @@
 ﻿using NUnit.Framework;
+using LowKey.Core.Source.Api;
 
 namespace LowKey.UnitTests.Source.Api {
   [TestFixture]
   class GetArtistInfoRequestTest {
     [Test]
     public void TestGetArtistInfoRequestPutsCorrectStringTogether() {
-      Assert.That(1, Is.EqualTo(2));
+      var request = new GetArtistInfoRequest("test artist");
     }
   }
 }
