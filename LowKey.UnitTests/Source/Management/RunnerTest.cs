@@ -9,7 +9,28 @@ namespace LowKey.UnitTests.Source.Management {
   [TestFixture]
   public class RunnerTest {
     [Test]
-    public void TestRunnerInitsSimilarArtistRequestAndReturnsParsedObject() {
+    public void TestRunnerInitsSimilarArtistRequestAndReturnsSimilarArtistsArrayWithNoItems() {
+      var request = new GetSimilarArtistsRequest("artist", "key3");
+      var message = new HttpResponseMessage();
+      mRequestHandler
+        .Setup(s => s.SendRequest(request))
+        .Returns(message)
+        .Verifiable();
+
+      mRequestHandler
+        .Setup(r => r.ReadRequest(message))
+        .Returns("{}")
+        .Verifiable();
+      
+      var result = mRunner.InitSimilarArtistsRequest(request);
+
+      Assert.IsNull(result.Artists);
+      
+      mRequestHandler.Verify();
+    }
+
+    [Test]
+    public void TestRunnerInitsSimilarArtistRequestAndReturnsSimilarArtistsArrayWithOneItem() {
       var request = new GetSimilarArtistsRequest("artist", "key3");
       var message = new HttpResponseMessage();
       mRequestHandler
@@ -21,12 +42,12 @@ namespace LowKey.UnitTests.Source.Management {
         .Setup(r => r.ReadRequest(message))
         .Returns("{'Artists':[{'Name':'wow'}]}")
         .Verifiable();
-      
+
       var result = mRunner.InitSimilarArtistsRequest(request);
 
       Assert.That(result.Artists.Length, Is.EqualTo(1));
       Assert.That(result.Artists[0].Name, Is.EqualTo("wow"));
-      
+
       mRequestHandler.Verify();
     }
 
