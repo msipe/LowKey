@@ -20,8 +20,4 @@ namespace LowKey.Core.Source.Management {
     private IRequestHandler mRequestHandler;
     private MemoryTraceWriter tw;
   }
-
-  public class SimilarArtistWrapper {
-    public SimilarArtists SimilarArtists { get; set; }
-  }
 }

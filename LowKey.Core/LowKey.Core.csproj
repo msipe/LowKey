@@ -53,6 +53,7 @@
     <Compile Include="Source\Api\RequestHandler.cs" />
     <Compile Include="Source\IRequest.cs" />
     <Compile Include="Source\Management\Artist.cs" />
+    <Compile Include="Source\Management\Mappings\SimilarArtistsWrapper.cs" />
     <Compile Include="Source\Management\Runner.cs" />
     <Compile Include="Source\Management\SimilarArtists.cs" />
   </ItemGroup>
