@@ -10,8 +10,15 @@ using System.Collections.Generic;
 namespace LowKey.UnitTests.Source.Management {
   [TestFixture]
   public class LowInterestArtistHandlerTest {
+
     [Test]
-    public void TestHandlerSelects30PossibleArtists() {
+    public void TestHandlerPullsCorrectArtistAmountWithZeroArtists() {
+      var handler = new LowInterestArtistHandler(mRequestHandler.Object, "key");
+      var results = handler.PullArtistData(new SimilarArtists(new Artist[] {}));
+      Assert.IsEmpty(results);
+    }
+    [Test]
+    public void TestHandlerPullsCorrectArtistAmountWithSingleArtist() {
       var handler = new LowInterestArtistHandler(mRequestHandler.Object, "key");
       var queue = new Queue<string>();
       queue.Enqueue("{'name':'artist name'}");
