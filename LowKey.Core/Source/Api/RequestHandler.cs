@@ -10,6 +10,7 @@ namespace LowKey.Core.Source.Api {
     public RequestHandler(IHttpClient httpClient) {
       mHttpClient = httpClient;
     }
+
     public HttpResponseMessage SendRequest(IRequest request) {
       return mHttpClient.GetAsync(request.GetString());
     }
@@ -17,6 +18,7 @@ namespace LowKey.Core.Source.Api {
     public string ReadRequest(HttpResponseMessage message) {
       return mHttpClient.ReadAsync(message);
     }
+
     private IHttpClient mHttpClient;
   }
 }
