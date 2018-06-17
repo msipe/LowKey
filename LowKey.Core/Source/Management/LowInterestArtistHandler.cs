@@ -18,7 +18,17 @@ namespace LowKey.Core.Source.Management {
         candidates.Add(JsonParser.Deserialize<Artist>(text));
       }
       return candidates.ToArray();
-    }    
+    }
+
+    public Artist[] SelectLowInterestArtists(Artist[] artists, int cutoff) {
+      var results = new List<Artist>();
+      foreach(var x in artists) {
+        if (x.Stats.Listeners < cutoff) {
+          results.Add(x);
+        }
+      }
+      return results.ToArray();
+    }
 
     private IRequestHandler mRequestHandler;
     private string mKey;
