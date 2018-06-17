@@ -8,7 +8,7 @@ namespace LowKey.Core.Source.Api {
     }
 
     public string GetString() {
-      return string.Format("{0}?method=artist.getsimilar&artist={1}&api_key={2}&format=json", ApiConstants.LastFmBaseUrl, ParseArtistName(mArtistName), mKey);
+      return string.Format("{0}?method=artist.getsimilar&artist={1}&api_key={2}&limit=50&format=json", ApiConstants.LastFmBaseUrl, ParseArtistName(mArtistName), mKey);
     }
 
     private string ParseArtistName(string incomingName) {
