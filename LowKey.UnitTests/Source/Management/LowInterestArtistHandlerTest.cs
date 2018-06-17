@@ -17,6 +17,7 @@ namespace LowKey.UnitTests.Source.Management {
       var results = handler.PullArtistData(new SimilarArtists(new Artist[] {}));
       Assert.IsEmpty(results);
     }
+
     [Test]
     public void TestHandlerPullsCorrectArtistAmountWithSingleArtist() {
       var handler = new LowInterestArtistHandler(mRequestHandler.Object, "key");
@@ -27,6 +28,28 @@ namespace LowKey.UnitTests.Source.Management {
       var results = handler.PullArtistData(CreateBatchOfSimilarArtists(1));
       Assert.That(results.Length, Is.EqualTo(1));
       Assert.That(results[0].Name, Is.EqualTo("artist name"));
+    }
+
+    [Test]
+    public void TestHandlerPullsCorrectArtistAmountWith5Artists() {
+      var handler = new LowInterestArtistHandler(mRequestHandler.Object, "key");
+      var queue = new Queue<string>();
+      queue.Enqueue("{'name':'artist 1'}");
+      queue.Enqueue("{'name':'artist 2'}");
+      queue.Enqueue("{'name':'despacito'}");
+      queue.Enqueue("{'name':'artist 4'}");
+      queue.Enqueue("{'name':'bilbo'}");
+
+      mRequestHandler.Setup(h => h.SendRequest(It.IsAny<GetArtistInfoRequest>())).Returns(new HttpResponseMessage());
+      mRequestHandler.Setup(h => h.ReadRequest(It.IsAny<HttpResponseMessage>())).Returns(queue.Dequeue);
+     
+      var results = handler.PullArtistData(CreateBatchOfSimilarArtists(5));
+      Assert.That(results.Length, Is.EqualTo(5));
+      Assert.That(results[0].Name, Is.EqualTo("artist 1"));
+      Assert.That(results[1].Name, Is.EqualTo("artist 2"));
+      Assert.That(results[2].Name, Is.EqualTo("despacito"));
+      Assert.That(results[3].Name, Is.EqualTo("artist 4"));
+      Assert.That(results[4].Name, Is.EqualTo("bilbo"));
     }
 
     [SetUp]
