@@ -1,12 +1,12 @@
 This is a small project that uses the Last.FM Api to create a list of lesser-known artists who are similar to an input artist.
 
-Usage
+<b>Usage</b>
 
   LowKey.exe "{ArtistName}",{ListenerCutoff}
   
   ListenerCutoff is the max number of listeners an artist can have before they're kicked off the list. 50000-100k is a good general range. More popular artists 
   
-Example
+<b>Example</b>
 
   LowKey.exe "Metallica",250000
   
