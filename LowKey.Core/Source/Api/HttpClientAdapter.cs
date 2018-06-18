@@ -9,6 +9,7 @@ namespace LowKey.Core.Source.Api {
   public class HttpClientAdapter:IHttpClient {
     public HttpClientAdapter() {
       mHttpClient = new HttpClient();
+      mHttpClient.DefaultRequestHeaders.Add("User-Agent", "Small Artist Search App");
     }
 
     public HttpResponseMessage GetAsync(string requestUri) {

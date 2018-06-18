@@ -12,9 +12,9 @@ namespace LowKey.Core.Source.Management {
       mRequestHandler = requestHandler;
     }
 
-    public SimilarArtistWrapper InitSimilarArtistsRequest(IRequest request) {
+    public SimilarArtistsWrapper InitSimilarArtistsRequest(IRequest request) {
       var requestContent = mRequestHandler.ReadRequest(mRequestHandler.SendRequest(request));
-      return Deserialize<SimilarArtistWrapper>(requestContent);
+      return Deserialize<SimilarArtistsWrapper>(requestContent);
     }
 
     private T Deserialize<T>(string json) {

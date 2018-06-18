@@ -60,6 +60,8 @@
     <Compile Include="Source\Management\Mappings\SimilarArtists.cs" />
     <Compile Include="Source\Management\Mappings\SimilarArtistsWrapper.cs" />
     <Compile Include="Source\Management\SimilarArtistHandler.cs" />
+    <Compile Include="Source\Runner\AppRunner.cs" />
+    <Compile Include="Source\Runner\Configuration.cs" />
     <Compile Include="Source\Utility\JsonParser.cs" />
     <Compile Include="Source\Utility\Logger.cs" />
   </ItemGroup>

@@ -1,28 +1,30 @@
 ﻿using System;
-using LowKey.Core.Source.Api;
-using Newtonsoft.Json;
-using LowKey.Core.Source.Management;
-using LowKey.Core.Source.Display;
+using LowKey.Core.Source.Runner;
 
 namespace LowKey {
   class Program {
     static void Main(string[] args) {
-      Console.WriteLine("hello there");
-      Run();
+      if (args.Length != 2) {
+        Console.WriteLine("Invalid input.");
+        Console.WriteLine("First Argument: Artist Name");
+        Console.WriteLine("Second Argument: Listener Cutoff");
+        return;
+      }
+
+      try {
+        Run(args[0], args[1]);
+      } catch (Exception err) {
+        Console.WriteLine(err.Message);
+        Console.WriteLine(err.StackTrace);
+      }
     }
 
-    static void Run() {
+    static void Run(string artist, string cutoff) {
       var key = "d603efbd297006bc2578f39e32f507dd";
-      var httpClient = new HttpClientAdapter();
-      var handler = new RequestHandler(httpClient);
-      var similarArtistHandler = new SimilarArtistHandler(handler);
-      var request = new GetSimilarArtistsRequest("In Flames", key);
-      var results = similarArtistHandler.InitSimilarArtistsRequest(request);
-      var lowInterestHandler = new LowInterestArtistHandler(handler, key);
-      var artistData = lowInterestHandler.PullArtistData(results.SimilarArtists);
-      var lowInterest = lowInterestHandler.SelectLowInterestArtists(artistData, 30000);
-      var manager = new OutputManager();
-      Console.WriteLine(manager.Display(lowInterest));
+      var config = new Config(artist, int.Parse(cutoff), key);
+      var runner = new AppRunner(config);
+
+      runner.Init();
     }
   }
 }
