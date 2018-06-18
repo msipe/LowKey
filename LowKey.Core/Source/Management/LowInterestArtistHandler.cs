@@ -2,6 +2,7 @@
 using LowKey.Core.Source.Management.Mappings;
 using LowKey.Core.Source.Utility;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,12 +13,12 @@ namespace LowKey.Core.Source.Management {
       mKey = key;
     }
     public Artist[] PullArtistData(SimilarArtists artistPool) {
-      var candidates = new List<Artist>();
+      var candidates = new List<ArtistWrapper>();
       foreach(var x in artistPool.Artist) {
         var text = mRequestHandler.ReadRequest(mRequestHandler.SendRequest(new GetArtistInfoRequest(x.Name, mKey)));
-        candidates.Add(JsonParser.Deserialize<Artist>(text));
+        candidates.Add(JsonParser.Deserialize<ArtistWrapper>(text));
       }
-      return candidates.ToArray();
+      return RemoveArtistWrapper(candidates.ToArray());
     }
 
     public Artist[] SelectLowInterestArtists(Artist[] artists, int cutoff) {
@@ -29,6 +30,14 @@ namespace LowKey.Core.Source.Management {
       }
 
       return results.ToArray();
+    }
+
+    private Artist[] RemoveArtistWrapper(ArtistWrapper[] wrapper) {
+      var result = new List<Artist>();
+
+      Array.ForEach(wrapper, w => result.Add(w.Artist));
+
+      return result.ToArray();
     }
 
     private IRequestHandler mRequestHandler;

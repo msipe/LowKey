@@ -2,6 +2,7 @@
 using LowKey.Core.Source.Api;
 using Newtonsoft.Json;
 using LowKey.Core.Source.Management;
+using LowKey.Core.Source.Display;
 
 namespace LowKey {
   class Program {
@@ -11,19 +12,17 @@ namespace LowKey {
     }
 
     static void Run() {
+      var key = "d603efbd297006bc2578f39e32f507dd";
       var httpClient = new HttpClientAdapter();
       var handler = new RequestHandler(httpClient);
-      var runner = new SimilarArtistHandler(handler);
-      var request = new GetSimilarArtistsRequest("metallica", "d603efbd297006bc2578f39e32f507dd");
-      var results = runner.InitSimilarArtistsRequest(request);
-      Console.WriteLine(results.SimilarArtists.Artist[0].Name);
-      Console.WriteLine(results.SimilarArtists.Artist[1].Name);
-      Console.WriteLine(results.SimilarArtists.Artist[2].Name);
-      //var response = handler.SendRequest(request);
-      //var result = handler.ReadRequest(response);
-
-      //var json = JsonConvert.DeserializeObject(result);
-      //Console.WriteLine(json);
+      var similarArtistHandler = new SimilarArtistHandler(handler);
+      var request = new GetSimilarArtistsRequest("In Flames", key);
+      var results = similarArtistHandler.InitSimilarArtistsRequest(request);
+      var lowInterestHandler = new LowInterestArtistHandler(handler, key);
+      var artistData = lowInterestHandler.PullArtistData(results.SimilarArtists);
+      var lowInterest = lowInterestHandler.SelectLowInterestArtists(artistData, 30000);
+      var manager = new OutputManager();
+      Console.WriteLine(manager.Display(lowInterest));
     }
   }
 }

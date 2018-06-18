@@ -80,7 +80,6 @@ namespace LowKey.UnitTests.Source.Management {
         new Artist("a2") {Stats=new ArtistStats(17,3)},
         new Artist("a3") {Stats=new ArtistStats(12,4)},
       };
-
       var results = mLowInterestArtistHandler.SelectLowInterestArtists(artists, 15);
 
       Assert.That(results.Length, Is.EqualTo(2));
